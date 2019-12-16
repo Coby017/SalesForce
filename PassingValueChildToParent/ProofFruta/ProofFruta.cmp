@@ -1,0 +1,18 @@
+<aura:component implements="force:hasRecordId,flexipage:availableForAllPageTypes,force:appHostable,flexipage:availableForRecordHome,force:lightningQuickAction"
+                access="global" >
+    
+    <aura:handler name="instanceEventFrutaId" event="c:ProofFrutas" action="{! c.whoFruta }"/>
+    <aura:attribute name="nameFruta" type="String" />
+	<lightning:tabset>
+        
+    	<lightning:tab label="Apple">
+            <c:ProofApple aura:Id="appleId" />        
+        </lightning:tab>
+    
+        <lightning:tab label="Pussy">
+            <c:ProofPussy aura:id="pussyId" />        
+        </lightning:tab>
+        
+</lightning:tabset>
+
+<!--https://albasfdc.com/2018/05/31/passing-action-handlers-to-child-components-using-aura-action/-->

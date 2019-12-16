@@ -1,0 +1,7 @@
+<aura:component>
+    
+    <aura:registerEvent name="instanceEventFrutaId" type="c:ProofFrutas" />
+    <aura:attribute name="nameFruta" type="String" />
+    <aura:handler name="init" value="{!this}" action="{! c.doInit }" />
+    
+</aura:component>
