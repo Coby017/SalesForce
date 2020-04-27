@@ -1,5 +1,6 @@
 ({
 	searchHelper : function(component,event,getInputkeyWord) {
+
 	  // call the apex class method 
      var action = component.get("c.fetchLookUpValues");
       // set param to method  
@@ -8,11 +9,14 @@
             'ObjectName' : component.get("v.objectAPIName"),
             'filter' : component.get('v.filter')
           });
+
       // set a callBack    
         action.setCallback(this, function(response) {
+
           $A.util.removeClass(component.find("mySpinner"), "slds-show");
             var state = response.getState();
-            if (state === "SUCCESS") {
+            if ( state === "SUCCESS" ) {
+
                 var storeResponse = response.getReturnValue();
               // if storeResponse size is equal 0 ,display No Result Found... message on screen.                }
                 if (storeResponse.length == 0) {
@@ -22,6 +26,7 @@
                 }
                 // set searchResult list with return value from server.
                 component.set("v.listOfSearchRecords", storeResponse);
+                                
             }
  
         });
@@ -38,9 +43,10 @@
         });
         action.setCallback(this, function(response) {
             var state = response.getState();
-            if(state === 'SUCCESS') {
-                console.log("Getting LookUpValue", response.getReturnValue());
-                console.log(response.getReturnValue().Name);
+            if( state === 'SUCCESS' ) {
+
+                //console.log("Getting LookUpValue", response.getReturnValue());
+                //console.log(response.getReturnValue().Name);
                 //cmp.set("v.status", response.getReturnValue());
                 // get the selected record from list  
                 var getSelectRecord = response.getReturnValue();
